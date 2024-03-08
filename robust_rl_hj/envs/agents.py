@@ -14,10 +14,11 @@ import pybullet as pb
 from pybullet_utils import bullet_client
 import xml.etree.ElementTree as etxml
 from typing import Tuple
-
-import control as control_modes
-from utils import get_assets_path, OUNoise
 from typing import Optional
+# inside import
+import robust_rl_hj.envs.control as control_modes
+from robust_rl_hj.envs.utils import get_assets_path, OUNoise
+
 
 
 
@@ -187,7 +188,7 @@ class CrazyFlieAgent(DroneBase):
         assert self.buf_size > 0
         self.action_buffer = np.zeros(shape=(self.buf_size, self.act_dim))
         self.action_idx = 0
-
+        # Hanyang: TODO: check what is the self.x and self.y
         self.x = np.zeros(self.act_dim)
         self.y = np.zeros(self.act_dim)
 

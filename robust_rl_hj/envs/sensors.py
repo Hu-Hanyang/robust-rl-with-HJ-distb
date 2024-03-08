@@ -1,17 +1,19 @@
-r""""Sensor functions.
+"""  Sensor class 
+Basic codes: 
+    https://github.com/SvenGronauer/phoenix-drone-simulation/tree/master
 
-Author:     Sven Gronauer
-
-Updates:
-    14.04.2022: Moved sensor noise from utils to sensor.py
+Hanyang Hu, Xubo Lyu, Xilun Zhang
+SFU Mars Lab, CMU SafeAI Lab
+2024.03.01
 """
+
 import pybullet as pb
 import math
 import abc
 import numpy as np
 from math import exp
-
-from phoenix_drone_simulation.envs.utils import deg2rad
+# inside import
+from robust_rl_hj.envs.utils import deg2rad
 
 
 class SensorNoise:

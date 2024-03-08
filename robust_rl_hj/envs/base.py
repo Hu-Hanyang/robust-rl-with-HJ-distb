@@ -13,14 +13,14 @@ import gym
 import numpy as np
 import pybullet as pb
 import pybullet_data
-from pybullet_utils import bullet_client
-
-import physics as forward_physics
-from agents import CrazyFlieSimpleAgent, CrazyFlieBulletAgent, CrazyFlieAgentWithDistb
-from utils import get_assets_path
-from sensors import SensorNoise
-from utils import LowPassFilter, get_quaternion_from_euler
 from collections import deque
+from pybullet_utils import bullet_client
+# inside import
+import robust_rl_hj.envs.physics as forward_physics
+from robust_rl_hj.envs.agents import CrazyFlieSimpleAgent, CrazyFlieBulletAgent, CrazyFlieAgentWithDistb
+from robust_rl_hj.envs.utils import get_assets_path
+from robust_rl_hj.envs.sensors import SensorNoise
+from robust_rl_hj.envs.utils import LowPassFilter, get_quaternion_from_euler
 
 
 
@@ -38,7 +38,7 @@ class EnvBase(gym.Env, abc.ABC):
             init_xyz_dot: np.ndarray,
             init_rpy_dot: np.ndarray,
             aggregate_phy_steps: int = 2,  # sub-steps used to calculate motor dynamics
-            domain_randomization: float = -1,  # deactivated when negative value
+            domain_randomization: float = -1.0,  # deactivated when negative value
             enable_reset_distribution=True,  # randomized the states when reset or initialize the env
             graphics = False,
             latency: float = 0.015,  # the latency of the motor dyanmics [s]
@@ -142,6 +142,7 @@ class EnvBase(gym.Env, abc.ABC):
         self.action_space = gym.spaces.Box(-a_lim, a_lim, dtype=np.float32)
 
         # stepping information
+        #TODO: potiential seems no use
         self.old_potential = self.compute_potential()
 
         # set parameters for visualization, the shape of the image is (self.render_height, self.render_width, 3)

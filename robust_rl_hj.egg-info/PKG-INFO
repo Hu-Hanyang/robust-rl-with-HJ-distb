@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: robust-rl-hj
+Version: 1.0
+Summary: Add disturbance to the Reinforcement Learning method in the simulation environments for the CrazyFlie quadrotor. This repository is based on the https://github.com/SvenGronauer/phoenix-drone-simulation
+Home-page: https://github.com/Hu-Hanyang/robust-rl-with-HJ-distb.git
+Author: Hanyang Hu, Xubo Lyu, Xilun Zhang
+Author-email: hha160@sfu.ca
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
